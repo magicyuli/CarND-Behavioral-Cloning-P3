@@ -7,7 +7,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten, Lambda, Dropout
 from keras.layers.convolutional import Convolution2D, Cropping2D
 from keras.layers.pooling import MaxPooling2D
-import matplotlib.pyplot as plt
 
 def loadData(data_path):
     X = []
@@ -28,7 +27,6 @@ def loadData(data_path):
             y.append(y_c)
             y.append(y_c + abs(y_c) * 0.2)
             y.append(y_c - abs(y_c) * 0.2)
-            # break
     return np.array(X), np.array(y)
 
 def Model():
@@ -59,8 +57,6 @@ def Model():
 def main(data_path='.'):
     X, y = loadData(data_path)
     print('Data loaded')
-    # plt.imshow(X[0])
-    # plt.show()
     model = Model()
     print('Starting training')
     model.fit(X, y, validation_split=0.2, shuffle=True, nb_epoch=5, verbose=1)
