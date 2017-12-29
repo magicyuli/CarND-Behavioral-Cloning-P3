@@ -1,0 +1,7 @@
+.DS_STORE
+IMG
+*.zip
+data
+submit
+__pycache__
+driving_log.csv
